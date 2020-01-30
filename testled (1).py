@@ -400,7 +400,7 @@ def main():
             elif button_behind():
                 if control:
                     driving = action_behind()
-                    ledFlash().start() = False
+                    leduit().start()
                     break
             elif button_right():
                 if control:
