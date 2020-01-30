@@ -383,8 +383,8 @@ def main():
     setup()
     setup_motor()
 
-    p1 = Process(target=ledFlash(11))
-    p1.start()
+    #p1 = Process(target=ledFlash(11))
+    #p1.start()
 
     wiistart()
     wiiremote = threading.Thread(target=wiimote, args=())
