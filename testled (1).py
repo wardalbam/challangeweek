@@ -351,25 +351,25 @@ def wiimote():
         wii_buttons()
         time.sleep(0.02)
 
-def ledFlash(pin):
-    GPIO.setup(pin,GPIO.OUT)
-    while True:
-        GPIO.output(pin,True)
-        time.sleep(10)
-        GPIO.output(pin,False)
-        time.sleep(10)
+#def ledFlash(pin):
+ #   GPIO.setup(pin,GPIO.OUT)
+  #  while True:
+   #     GPIO.output(pin,True)
+    #    time.sleep(10)
+     #   GPIO.output(pin,False)
+      #  time.sleep(10)
         
-def ledBlink(pin):
-    GPIO.setup(pin,GPIO.OUT)
-    while True:
-        GPIO.output(pin,True)
-        time.sleep(0.1)
-        GPIO.output(pin,False)
-        time.sleep(0.1)
-def leduit(pin):
-    GPIO.setup(pin,GPIO.OUT)
-    while True:
-        GPIO.output(pin,False)
+#def ledBlink(pin):
+ #   GPIO.setup(pin,GPIO.OUT)
+  #  while True:
+   #     GPIO.output(pin,True)
+    #    time.sleep(0.1)
+     #   GPIO.output(pin,False)
+      #  time.sleep(0.1)
+#def leduit(pin):
+ #   GPIO.setup(pin,GPIO.OUT)
+  #  while True:
+   #     GPIO.output(pin,False)
          
 
 def main():
@@ -396,21 +396,21 @@ def main():
             if button_left():
                 if control:
                     action_left()
-                    ledBlink().start()
+                    #ledBlink().start()
             elif button_behind():
                 if control:
                     driving = action_behind()
-                    leduit().start()
+                    #leduit().start()
                     break
             elif button_right():
                 if control:
                     action_right()
-                    ledBlink().start()
+                    #ledBlink().start()
             else:
                 if control:
                     print("Vroem....")
                     forward() 
-                    ledFlash().start()
+                    #ledFlash().start()
         else:
             time.sleep(0.1)
     GPIO.cleanup()
