@@ -82,9 +82,9 @@ def button_behind():
 
     if curr_state_behind != prev_state["behind"]:  # state changed from '1' to '0' or from '0' to '1'
         if curr_state_behind == 1:  # button changed from pressed ('0') to released ('1')
-            event = False
-        else:  # button changed from released ('1') to pressed ('0')
             event = True
+        else:  # button changed from released ('1') to pressed ('0')
+            event = False
         prev_state["behind"] = curr_state_behind  # store current state
     time.sleep(0.02)
     return event
@@ -366,9 +366,10 @@ def ledBlink(pin):
         time.sleep(0.1)
         GPIO.output(pin,False)
         time.sleep(0.1)
-
-
-
+def leduit(pin):
+    GPIO.setup(pin,GPIO.OUT)
+    while True:
+        GPIO.output(pin,False)
 
 def main():
     global control
@@ -394,13 +395,16 @@ def main():
             if button_left():
                 if control:
                     action_left()
+                    ledBlink().start()
             elif button_behind():
                 if control:
                     driving = action_behind()
+                    ledFlash().start() = False
                     break
             elif button_right():
                 if control:
                     action_right()
+                    ledBlink().start()
             else:
                 if control:
                     print("Vroem....")
