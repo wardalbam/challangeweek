@@ -7,7 +7,7 @@ import sys
 
 buttonPin = {"left": 16, "behind": 21, "right": 12}
 prev_state = {"left": 1, "behind": 1, "right": 1}
-led = Led(11)
+
 
 busy = False
 stop = False
