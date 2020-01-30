@@ -7,6 +7,7 @@ import sys
 
 buttonPin = {"left": 16, "behind": 21, "right": 12}
 prev_state = {"left": 1, "behind": 1, "right": 1}
+led = Led(11)
 
 busy = False
 stop = False
@@ -354,9 +355,19 @@ def ledFlash(pin):
     GPIO.setup(pin,GPIO.OUT)
     while True:
         GPIO.output(pin,True)
-        time.sleep(0.5)
+        time.sleep(10)
         GPIO.output(pin,False)
-        time.sleep(0.5)
+        time.sleep(10)
+        
+def ledBlink(pin):
+    GPIO.setup(pin,GPIO.OUT)
+    while True:
+        GPIO.output(pin,True)
+        time.sleep(0.1)
+        GPIO.output(pin,False)
+        time.sleep(0.1)
+
+
 
 
 def main():
@@ -393,7 +404,8 @@ def main():
             else:
                 if control:
                     print("Vroem....")
-                    forward()
+                    forward() 
+                    ledFlash().start()
         else:
             time.sleep(0.1)
     GPIO.cleanup()
