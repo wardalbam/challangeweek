@@ -370,7 +370,7 @@ def leduit(pin):
     GPIO.setup(pin,GPIO.OUT)
     while True:
         GPIO.output(pin,False)
-         time.sleep(0.2)
+         
 
 def main():
     global control
