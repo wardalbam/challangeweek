@@ -405,7 +405,7 @@ def main():
             elif button_right():
                 if control:
                     action_right()
-                    #ledBlink().start()
+                    ledBlink().start()
             else:
                 if control:
                     print("Vroem....")
