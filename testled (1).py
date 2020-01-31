@@ -4,7 +4,8 @@ import cwiid
 import threading
 from multiprocessing import Process
 import sys
-
+from gpiozero import button, LED
+led = Led(11)
 
 buttonPin = {"left": 16, "behind": 21, "right": 12}
 prev_state = {"left": 1, "behind": 1, "right": 1}
@@ -352,13 +353,11 @@ def wiimote():
         wii_buttons()
         time.sleep(0.02)
 def ledFlash(pin):
-    GPIO.setup(pin,GPIO.OUT)
-    for i in range(4):
-        GPIO.output(pin,True)
-        time.sleep(10)
-        GPIO.output(pin,False)
-        time.sleep(10)
-        
+    while True:
+        led.on()
+        sleep(10)
+        led.off()
+        sleep(10)
 #def ledBlink(pin):
  #   GPIO.setup(pin,GPIO.OUT)
   #  while True:
