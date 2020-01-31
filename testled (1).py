@@ -353,19 +353,19 @@ def wiimote():
         time.sleep(0.02)
 def ledFlash(pin):
     GPIO.setup(pin,GPIO.OUT)
-    while True:
+    for i in range(4):
         GPIO.output(pin,True)
         time.sleep(10)
         GPIO.output(pin,False)
         time.sleep(10)
         
-def ledBlink(pin):
-    GPIO.setup(pin,GPIO.OUT)
-    while True:
-        GPIO.output(pin,True)
-        time.sleep(0.1)
-        GPIO.output(pin,False)
-        time.sleep(0.1)
+#def ledBlink(pin):
+ #   GPIO.setup(pin,GPIO.OUT)
+  #  while True:
+   #     GPIO.output(pin,True)
+    #    time.sleep(0.1)
+     #   GPIO.output(pin,False)
+      #  time.sleep(0.1)
 #def leduit(pin):
  #   GPIO.setup(pin,GPIO.OUT)
   #  while True:
@@ -396,7 +396,7 @@ def main():
             if button_left():
                 if control:
                     action_left()
-                    ledBlink()
+                    #ledBlink()
             elif button_behind():
                 if control:
                     driving = action_behind()
@@ -405,12 +405,12 @@ def main():
             elif button_right():
                 if control:
                     action_right()
-                    ledBlink().start()
+                    #ledBlink().start()
             else:
                 if control:
                     print("Vroem....")
                     forward() 
-                    ledFlash()
+                    
         else:
             time.sleep(0.1)
     GPIO.cleanup()
