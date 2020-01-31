@@ -12,7 +12,7 @@ prev_state = {"left": 1, "behind": 1, "right": 1}
 
 busy = False
 stop = False
-leftmotor = [2, 3, 4, 17]
+leftmotor = [17, 4,3,2]      #[2, 3, 4, 17]
 rightmotor = [27, 22, 10, 9]
 
 halfstep_seq_left = [
@@ -351,14 +351,13 @@ def wiimote():
     while True:
         wii_buttons()
         time.sleep(0.02)
-
-#def ledFlash(pin):
- #   GPIO.setup(pin,GPIO.OUT)
-  #  while True:
-   #     GPIO.output(pin,True)
-    #    time.sleep(10)
-     #   GPIO.output(pin,False)
-      #  time.sleep(10)
+def ledFlash(pin):
+    GPIO.setup(pin,GPIO.OUT)
+    while True:
+        GPIO.output(pin,True)
+        time.sleep(10)
+        GPIO.output(pin,False)
+        time.sleep(10)
         
 #def ledBlink(pin):
  #   GPIO.setup(pin,GPIO.OUT)
@@ -384,8 +383,8 @@ def main():
     setup()
     setup_motor()
 
-    #p1 = Process(target=ledFlash(11))
-    #p1.start()
+    p1 = Process(target=ledFlash(11))
+    p1.start()
 
     wiistart()
     wiiremote = threading.Thread(target=wiimote, args=())
@@ -411,7 +410,7 @@ def main():
                 if control:
                     print("Vroem....")
                     forward() 
-                    #ledFlash().start()
+                    ledFlash().start()
         else:
             time.sleep(0.1)
     GPIO.cleanup()
