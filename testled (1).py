@@ -359,13 +359,13 @@ def ledFlash(pin):
         GPIO.output(pin,False)
         time.sleep(10)
         
-#def ledBlink(pin):
- #   GPIO.setup(pin,GPIO.OUT)
-  #  while True:
-   #     GPIO.output(pin,True)
-    #    time.sleep(0.1)
-     #   GPIO.output(pin,False)
-      #  time.sleep(0.1)
+def ledBlink(pin):
+    GPIO.setup(pin,GPIO.OUT)
+    while True:
+        GPIO.output(pin,True)
+        time.sleep(0.1)
+        GPIO.output(pin,False)
+        time.sleep(0.1)
 #def leduit(pin):
  #   GPIO.setup(pin,GPIO.OUT)
   #  while True:
@@ -396,7 +396,7 @@ def main():
             if button_left():
                 if control:
                     action_left()
-                    #ledBlink().start()
+                    ledBlink()
             elif button_behind():
                 if control:
                     driving = action_behind()
@@ -410,7 +410,7 @@ def main():
                 if control:
                     print("Vroem....")
                     forward() 
-                    ledFlash().start()
+                    ledFlash()
         else:
             time.sleep(0.1)
     GPIO.cleanup()
